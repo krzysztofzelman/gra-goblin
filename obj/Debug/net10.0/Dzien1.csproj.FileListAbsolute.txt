@@ -1,0 +1,14 @@
+C:\NaukaCSharp\Dzien1\bin\Debug\net10.0\Dzien1.exe
+C:\NaukaCSharp\Dzien1\bin\Debug\net10.0\Dzien1.deps.json
+C:\NaukaCSharp\Dzien1\bin\Debug\net10.0\Dzien1.runtimeconfig.json
+C:\NaukaCSharp\Dzien1\bin\Debug\net10.0\Dzien1.dll
+C:\NaukaCSharp\Dzien1\bin\Debug\net10.0\Dzien1.pdb
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\Dzien1.GeneratedMSBuildEditorConfig.editorconfig
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\Dzien1.AssemblyInfoInputs.cache
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\Dzien1.AssemblyInfo.cs
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\Dzien1.csproj.CoreCompileInputs.cache
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\Dzien1.dll
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\refint\Dzien1.dll
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\Dzien1.pdb
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\Dzien1.genruntimeconfig.cache
+C:\NaukaCSharp\Dzien1\obj\Debug\net10.0\ref\Dzien1.dll
