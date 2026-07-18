@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\NaukaCSharp\\Dzien1\\Dzien1.csproj",
+      "projectUniqueName": "D:\\Dane\\Projekty\\NaukaCSharp\\Dzien1\\Dzien1.csproj",
       "projectName": "Dzien1",
-      "projectPath": "C:\\NaukaCSharp\\Dzien1\\Dzien1.csproj",
+      "projectPath": "D:\\Dane\\Projekty\\NaukaCSharp\\Dzien1\\Dzien1.csproj",
       "packagesPath": "C:\\Users\\krzys\\.nuget\\packages\\",
-      "outputPath": "C:\\NaukaCSharp\\Dzien1\\obj\\",
+      "outputPath": "D:\\Dane\\Projekty\\NaukaCSharp\\Dzien1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\krzys\\AppData\\Roaming\\NuGet\\NuGet.Config"
