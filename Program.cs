@@ -5,7 +5,8 @@ class Program
 {
 static void Main ()
     {
-        int hp = 20;
+        int hp = 30;
+        int maxHp = 30;
         int enemyHp = 25;
         int potions = 3;
         Random rng  = new Random();
@@ -60,7 +61,16 @@ static void Main ()
                 if (rng.Next (1, 101) <= 20)
                 {
                     dmg *= 2;
+                     Console.ForegroundColor = ConsoleColor.Red;
                      Console.WriteLine($"⚡ KRYTYCZNY CIOS! {dmg} obrażeń!");
+                     Console.ResetColor();
+                }
+                
+                if (rng.Next (1, 101) <= 15)
+                {
+                    Console.WriteLine("💨 Goblin uniknął Twojego ataku!");
+                    enemyHp += dmg;
+                    continue;
                 }
                 
                 enemyHp -= dmg;
@@ -69,7 +79,7 @@ static void Main ()
             else if (actions =="2" && potions > 0)
             {
                 hp += 5;
-                if(hp > 20) hp=20;
+                if (hp > maxHp) hp = maxHp;
                 potions--;
                 Console.WriteLine($"💚 Leczysz się! HP: {hp}, zostało mikstur: {potions}");
                 Console.WriteLine("🛡️ Przegrywasz atak, goblin nie atakuje w tej turze!");
