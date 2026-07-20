@@ -16,7 +16,7 @@ static void Main ()
         Console.WriteLine("2 - Topór (4-10 dmg)");
         Console.WriteLine("3 - Sztylet (2-5 dmg, dwa ataki)");
 
-        String weapon = Console.ReadLine();
+        String weapon = Console.ReadLine() ?? "";
 
         Console.WriteLine("Przed tobą stoi goblin, zaczyna się walka!");
 
@@ -26,7 +26,7 @@ static void Main ()
             Console.WriteLine("Co chcesz zrobic?");
             Console.WriteLine("1- Atakuj");
             Console.WriteLine("2- Użyj mikstury (+5 HP)");
-            String actions = Console.ReadLine();
+            String actions = Console.ReadLine() ?? "";
 
             if (actions == "1")
             {
@@ -35,7 +35,7 @@ static void Main ()
                 if(weapon == "1")
                 {
                     dmg = rng.Next(3, 9);
-                    Console.WriteLine($"Atakujesz mieczem i zadajesz {dmg} obrażeń! ");
+                    Console.WriteLine($"⚔️ Atakujesz mieczem i zadajesz {dmg} obrażeń! ");
                 }
 
                 else if (weapon == "2")
@@ -49,16 +49,21 @@ static void Main ()
                     int hit1 = rng.Next(2, 6);
                     int hit2 = rng.Next(2, 6);
                     dmg = hit1 + hit2;
-                    Console.WriteLine($"Atakujesz sztyletem: {hit1} + {hit2} = {dmg} obrażeń!");
+                    Console.WriteLine($"🗡️ Atakujesz sztyletem: {hit1} + {hit2} = {dmg} obrażeń!");
                 }
                 else
                 {
-                    Console.WriteLine("Nie masz broni, pudłujesz!");
+                    Console.WriteLine("❌ Nie masz broni, pudłujesz!");
                     dmg = 0;
+                }
+
+                if (rng.Next (1, 101) <= 20)
+                {
+                    dmg *= 2;
+                     Console.WriteLine($"⚡ KRYTYCZNY CIOS! {dmg} obrażeń!");
                 }
                 
                 enemyHp -= dmg;
-                Console.WriteLine("Nie masz broni pudłujesz!");
 
             }   
             else if (actions =="2" && potions > 0)
@@ -66,8 +71,8 @@ static void Main ()
                 hp += 5;
                 if(hp > 20) hp=20;
                 potions--;
-                Console.WriteLine($"Ledczysz się! HP: {hp}, zostało mikstur: {potions}");
-                Console.WriteLine("Przegrywasz atak, goblin nie atakuje w tej turze!");
+                Console.WriteLine($"💚 Leczysz się! HP: {hp}, zostało mikstur: {potions}");
+                Console.WriteLine("🛡️ Przegrywasz atak, goblin nie atakuje w tej turze!");
                 continue;
             }        
             else
@@ -87,7 +92,7 @@ static void Main ()
 
             if(hp <= 0)
             {
-                Console.WriteLine("Zginąłeś. koniec gry.");
+                Console.WriteLine("💀 Zginąłeś. koniec gry.");
                 return;
             }
 
