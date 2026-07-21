@@ -1,23 +1,25 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
-using System.Runtime.InteropServices.Marshalling;
 class Program
 {
+    static string   ChooseWeapon()
+    {
+        Console.WriteLine("Wybierz swoja broń");
+        Console.WriteLine("1 - Miecz (3 - 8 dg)");
+        Console.WriteLine("2 - Topór (4 - 10dmg)");
+        Console.WriteLine("3 - Sztylet (2-5 dmg, dwa ataki)");
+        return Console.ReadLine() ?? "";
+    }
 static void Main ()
     {
         int hp = 30;
         int maxHp = 30;
         int enemyHp = 25;
         int potions = 3;
-        Random rng  = new Random();
+        Random rng  = new Random();     
 
         Console.WriteLine("Witaj w lochu!");
-        Console.WriteLine("Wybierz swoją broń");
-        Console.WriteLine("1 - Miecz (3-8 dmg)");
-        Console.WriteLine("2 - Topór (4-10 dmg)");
-        Console.WriteLine("3 - Sztylet (2-5 dmg, dwa ataki)");
 
-        String weapon = Console.ReadLine() ?? "";
+        string weapon = ChooseWeapon();
 
         Console.WriteLine("Przed tobą stoi goblin, zaczyna się walka!");
 
@@ -69,7 +71,6 @@ static void Main ()
                 if (rng.Next (1, 101) <= 15)
                 {
                     Console.WriteLine("💨 Goblin uniknął Twojego ataku!");
-                    enemyHp += dmg;
                     continue;
                 }
                 
