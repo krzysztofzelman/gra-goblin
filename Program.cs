@@ -13,7 +13,7 @@ static void Main ()
     {
         int hp = 30;
         int maxHp = 30;
-        int enemyHp = 0;
+        Enemy? enemy = null;
         int potions = 3;
         int gold = 0;
         int stage = 1;
@@ -24,26 +24,18 @@ static void Main ()
 
         string weapon = ChooseWeapon();      
 
-        while (hp > 0 && enemyHp > 0)
+        while (hp > 0)
         {
-            string enemyName = "";
 
-            if (enemyHp <= 0)
+            if (enemy == null || enemy.CurrentHp <= 0)
             {
-                int enemyMaxHp = 0;
                 if (stage == 1)
-                {
-                    enemyName = "goblin";
-                    enemyMaxHp = 25;
-                }
-                else if (stage == 2)
-                {
-                    enemyName = "orc";
-                    enemyMaxHp = 40;
-                }
+                enemy = new Enemy("Goblin", 25,2,6);
 
-                enemyHp = enemyMaxHp;
-                Console.WriteLine($"\nPrzed tobą stoi {enemyName}, zaczyna się walka!");
+                else if (stage == 2)
+                enemy = new Enemy("Ork",40,3,8);
+
+                Console.WriteLine($"\nPrzed tobą stoi {enemy.Name}, zaczyna się walka!");
             }
 
             Console.WriteLine($"\nHP: {hp} | Mikstury: {potions}");
@@ -83,7 +75,7 @@ static void Main ()
 
                 if (rng.Next (1, 101) <= 15)
                 {
-                    Console.WriteLine("💨 Goblin uniknął Twojego ataku!");
+                    Console.WriteLine($"💨 {enemy.Name} uniknął Twojego ataku!");
                     continue;
                 }
 
@@ -95,7 +87,7 @@ static void Main ()
                      Console.ResetColor();
                 }
                 
-                enemyHp -= dmg;
+                enemy.CurrentHp -= dmg;
 
             }   
             else if (actions =="2" && potions > 0)
@@ -104,7 +96,7 @@ static void Main ()
                 if (hp > maxHp) hp = maxHp;
                 potions--;
                 Console.WriteLine($"💚 Leczysz się! HP: {hp}, zostało mikstur: {potions}");
-                Console.WriteLine("🛡️ Przegrywasz atak, goblin nie atakuje w tej turze!");
+                Console.WriteLine($"🛡️ Przegrywasz atak, {enemy.Name} nie atakuje w tej turze!");
                 continue;
             }        
             else
@@ -113,18 +105,23 @@ static void Main ()
                 continue;
             }
 
-            if (enemyHp <= 0)
+            if (enemy.CurrentHp <= 0)
             {
                 gold += 10;
-                Console.WriteLine($"🎉 Pokonałeś {enemyName}! Zdobyłes 10 złota (masz; {gold})");
+                Console.WriteLine($"🎉 Pokonałeś {enemy.Name}! Zdobyłes 10 złota (masz: {gold})");
                 stage++;
+                if(stage > 2)
+                {
+                    Console.WriteLine($"🏆 Gratulacje! Ukończyłeś loch! Zdobyłeś {gold} złota!");
+                    return;
+                }
                 Console.WriteLine("Nacisnij ENTER, aby porzejść dalej...");
                 Console.ReadLine();
                 continue;
             }
-            int enemyDmg = rng.Next(2, 7);
+            int enemyDmg = rng.Next(enemy.MinDmg, enemy.Maxdmg + 1);
             hp -= enemyDmg;
-            Console.WriteLine($"👹 Goblin zadaje Ci {enemyDmg} obrażeń. Masz teraz {hp} HP.");
+            Console.WriteLine($"👹 {enemy.Name} zadaje Ci {enemyDmg} obrażeń. Masz teraz {hp} HP.");
 
             if(hp <= 0)
             {
@@ -136,4 +133,22 @@ static void Main ()
             Console.ReadLine();
         } 
     }
+class Enemy
+    {
+        public string Name; 
+        public int MaxHp; 
+        public int CurrentHp;
+        public int MinDmg;
+        public int Maxdmg; 
+
+        public Enemy(string name, int maxHp, int minDmg, int maxDmg)
+        {
+            Name = name;
+            MaxHp = maxHp;
+            CurrentHp = maxHp;
+            MinDmg = minDmg;
+            Maxdmg = maxDmg;
+        }
+    } 
+
 }
