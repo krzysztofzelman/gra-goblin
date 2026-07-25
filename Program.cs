@@ -19,6 +19,15 @@ class Program
 
         }
     }
+    static void DrawEnemy(Enemy enemy)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        if (enemy.Name == "Goblin")
+        Console.WriteLine("        ⊂(◉‿◉)⊃");
+        else if (enemy.Name == "Ork")
+        Console.WriteLine("        ᗜˬᗜ");
+        Console.ResetColor();
+    }
 static void Main ()
     {
         int hp = 30;
@@ -44,7 +53,7 @@ static void Main ()
 
                 else if (stage == 2)
                 enemy = new Enemy("Ork",40,3,8);
-
+                DrawEnemy(enemy);
                 Console.WriteLine($"\nPrzed tobą stoi {enemy.Name}, zaczyna się walka!");
             }
 
