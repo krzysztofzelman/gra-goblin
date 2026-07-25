@@ -1,13 +1,23 @@
 ﻿using System;
+enum  WeponType {Sword, Axe, Dagger }
 class Program
 {
-    static string   ChooseWeapon()
+    static WeponType ChooseWeapon()
     {
         Console.WriteLine("Wybierz swoja broń");
         Console.WriteLine("1 - Miecz (3 - 8 dmg)");
         Console.WriteLine("2 - Topór (4 - 10dmg)");
         Console.WriteLine("3 - Sztylet (2-5 dmg, dwa ataki)");
-        return Console.ReadLine() ?? "";
+        string input =  Console.ReadLine() ?? "";
+
+        switch (input)
+        {
+            case "1": return WeponType.Sword;
+            case "2": return WeponType.Axe;
+            case "3": return WeponType.Dagger;
+            default: return WeponType.Sword;
+
+        }
     }
 static void Main ()
     {
@@ -22,7 +32,7 @@ static void Main ()
 
         Console.WriteLine("Witaj w lochu!");
 
-        string weapon = ChooseWeapon();      
+        WeponType weapon = ChooseWeapon();      
 
         while (hp > 0)
         {
@@ -51,17 +61,17 @@ static void Main ()
 
                 switch (weapon)
                 {
-                    case "1": 
+                    case WeponType.Sword: 
                     dmg = rng.Next(3, 9);
                     Console.WriteLine($"⚔️ Atakujesz mieczem i zadajesz {dmg} obrażeń! ");
                     break;
 
-                    case "2": 
+                    case WeponType.Axe: 
                     dmg = rng.Next(4, 11);
                     Console.WriteLine($"🪓 Atakujesz toporem i zadajesz {dmg} obrażeń!");
                     break;
 
-                    case "3":
+                    case WeponType.Dagger:
                     int hit1 = rng.Next(2, 6);
                     int hit2 = rng.Next(2, 6);
                     dmg = hit1 + hit2;
