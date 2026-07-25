@@ -46,31 +46,31 @@ static void Main ()
 
             if (actions == "1")
             {
+
                 int dmg = 0;
 
-                if(weapon == "1")
+                switch (weapon)
                 {
+                    case "1": 
                     dmg = rng.Next(3, 9);
                     Console.WriteLine($"⚔️ Atakujesz mieczem i zadajesz {dmg} obrażeń! ");
-                }
+                    break;
 
-                else if (weapon == "2")
-                {
+                    case "2": 
                     dmg = rng.Next(4, 11);
                     Console.WriteLine($"🪓 Atakujesz toporem i zadajesz {dmg} obrażeń!");
-                }
+                    break;
 
-                else if (weapon == "3") 
-                {
+                    case "3":
                     int hit1 = rng.Next(2, 6);
                     int hit2 = rng.Next(2, 6);
                     dmg = hit1 + hit2;
-                    Console.WriteLine($"🗡️ Atakujesz sztyletem: {hit1} + {hit2} = {dmg} obrażeń!");
-                }
-                else
-                {
-                    Console.WriteLine("❌ Nie masz broni, pudłujesz!");
+                    Console.WriteLine($"🗡️ Atakujesz sztyletem: {hit1} + {hit2} = {dmg} obrażeń!");                    break;
+
+                    default:
                     dmg = 0;
+                    Console.WriteLine("❌ Nie masz broni, pudłujesz!");
+                    break;
                 }
 
                 if (rng.Next (1, 101) <= 15)
