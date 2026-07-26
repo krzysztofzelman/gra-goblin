@@ -26,6 +26,9 @@ class Program
         Console.WriteLine("        ⊂(◉‿◉)⊃");
         else if (enemy.Name == "Ork")
         Console.WriteLine("        ᗜˬᗜ");
+        else if (enemy.Name == "Troll")
+        Console.WriteLine ("        (҂◡_◡) ᕤ");
+
         Console.ResetColor();
     }
 static void Main ()
@@ -53,6 +56,10 @@ static void Main ()
 
                 else if (stage == 2)
                 enemy = new Enemy("Ork",40,3,8);
+
+                else if (stage == 3)
+                enemy = new Enemy ("Troll", 60, 4, 10);
+
                 DrawEnemy(enemy);
                 Console.WriteLine($"\nPrzed tobą stoi {enemy.Name}, zaczyna się walka!");
             }
@@ -129,7 +136,10 @@ static void Main ()
                 gold += 10;
                 Console.WriteLine($"🎉 Pokonałeś {enemy.Name}! Zdobyłes 10 złota (masz: {gold})");
                 stage++;
-                if(stage > 2)
+                hp += 10;
+                if (hp > maxHp) hp=maxHp;
+                Console.WriteLine($"💤 Odpoczywasz przed kolejnym etapem. Odbudowałeś siły (+10 HP). Masz {hp} HP.");
+                if(stage > 3)
                 {
                     Console.WriteLine($"🏆 Gratulacje! Ukończyłeś loch! Zdobyłeś {gold} złota!");
                     return;
