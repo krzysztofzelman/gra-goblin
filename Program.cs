@@ -1,8 +1,8 @@
 ﻿using System;
-enum  WeponType {Sword, Axe, Dagger }
+enum  WeaponType {Sword, Axe, Dagger }
 class Program
 {
-    static WeponType ChooseWeapon()
+    static WeaponType ChooseWeapon()
     {
         Console.WriteLine("Wybierz swoja broń");
         Console.WriteLine("1 - Miecz (3 - 8 dmg)");
@@ -12,10 +12,10 @@ class Program
 
         switch (input)
         {
-            case "1": return WeponType.Sword;
-            case "2": return WeponType.Axe;
-            case "3": return WeponType.Dagger;
-            default: return WeponType.Sword;
+            case "1": return WeaponType.Sword;
+            case "2": return WeaponType.Axe;
+            case "3": return WeaponType.Dagger;
+            default: return WeaponType.Sword;
 
         }
     }
@@ -41,7 +41,7 @@ static void Main ()
 
         Console.WriteLine("Witaj w lochu!");
 
-        WeponType weapon = ChooseWeapon();      
+        WeaponType weapon = ChooseWeapon();      
 
         while (hp > 0)
         {
@@ -70,17 +70,17 @@ static void Main ()
 
                 switch (weapon)
                 {
-                    case WeponType.Sword: 
+                    case WeaponType.Sword: 
                     dmg = rng.Next(3, 9);
                     Console.WriteLine($"⚔️ Atakujesz mieczem i zadajesz {dmg} obrażeń! ");
                     break;
 
-                    case WeponType.Axe: 
+                    case WeaponType.Axe: 
                     dmg = rng.Next(4, 11);
                     Console.WriteLine($"🪓 Atakujesz toporem i zadajesz {dmg} obrażeń!");
                     break;
 
-                    case WeponType.Dagger:
+                    case WeaponType.Dagger:
                     int hit1 = rng.Next(2, 6);
                     int hit2 = rng.Next(2, 6);
                     dmg = hit1 + hit2;
@@ -152,22 +152,5 @@ static void Main ()
             Console.ReadLine();
         } 
     }
-class Enemy
-    {
-        public string Name; 
-        public int MaxHp; 
-        public int CurrentHp;
-        public int MinDmg;
-        public int Maxdmg; 
-
-        public Enemy(string name, int maxHp, int minDmg, int maxDmg)
-        {
-            Name = name;
-            MaxHp = maxHp;
-            CurrentHp = maxHp;
-            MinDmg = minDmg;
-            Maxdmg = maxDmg;
-        }
-    } 
 
 }
