@@ -10,3 +10,6 @@ obj/
 ## System
 Thumbs.db
 Desktop.ini
+
+## Qwen — ustawienia lokalne
+.qwen/
