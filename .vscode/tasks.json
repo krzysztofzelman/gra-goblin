@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "./${workspaceFolder}/c:/Users/krzys/AppData/Roaming/Code/User/workspaceStorage/46cc704b6b284880d094e4054bb01423/ms-dotnettools.csdevkit/Dzien1.sln",
+                "./${workspaceFolder}/GraGoblin.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "./${workspaceFolder}/c:/Users/krzys/AppData/Roaming/Code/User/workspaceStorage/46cc704b6b284880d094e4054bb01423/ms-dotnettools.csdevkit/Dzien1.sln",
+                "./${workspaceFolder}/GraGoblin.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "./${workspaceFolder}/c:/Users/krzys/AppData/Roaming/Code/User/workspaceStorage/46cc704b6b284880d094e4054bb01423/ms-dotnettools.csdevkit/Dzien1.sln"
+                "./${workspaceFolder}/GraGoblin.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -44,14 +44,14 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "dzien1:dev",
+                "tag": "gragoblin:dev",
                 "target": "base",
                 "dockerfile": "${workspaceFolder}/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/Dzien1.csproj"
+                "appProject": "${workspaceFolder}/GraGoblin.csproj"
             }
         },
         {
@@ -61,7 +61,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "dzien1:latest",
+                "tag": "gragoblin:latest",
                 "dockerfile": "${workspaceFolder}/Dockerfile",
                 "context": "${workspaceFolder}",
                 "platform": {
@@ -71,7 +71,7 @@
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/Dzien1.csproj"
+                "appProject": "${workspaceFolder}/GraGoblin.csproj"
             }
         },
         {
@@ -84,7 +84,7 @@
                 "os": "Windows"
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/Dzien1.csproj",
+                "appProject": "${workspaceFolder}/GraGoblin.csproj",
                 "enableDebugging": true
             }
         },
@@ -98,7 +98,7 @@
                 "os": "Windows"
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/Dzien1.csproj"
+                "appProject": "${workspaceFolder}/GraGoblin.csproj"
             }
         }
     ]

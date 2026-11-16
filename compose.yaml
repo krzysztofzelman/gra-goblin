@@ -1,7 +1,7 @@
 
 services:
-  dzien1:
-    image: dzien1
+  gragoblin:
+    image: gragoblin
     build:
       context: .
       dockerfile: ./Dockerfile

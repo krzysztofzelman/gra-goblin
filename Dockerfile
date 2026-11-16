@@ -4,17 +4,17 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:10.0-nanoserver-ltsc2022 AS build
 ARG configuration=Release
 WORKDIR /src
-COPY ["Dzien1.csproj", "./"]
-RUN dotnet restore "Dzien1.csproj"
+COPY ["GraGoblin.csproj", "./"]
+RUN dotnet restore "GraGoblin.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "Dzien1.csproj" -c $configuration -o /app/build
+RUN dotnet build "GraGoblin.csproj" -c $configuration -o /app/build
 
 FROM build AS publish
 ARG configuration=Release
-RUN dotnet publish "Dzien1.csproj" -c $configuration -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "GraGoblin.csproj" -c $configuration -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Dzien1.dll"]
+ENTRYPOINT ["dotnet", "GraGoblin.dll"]
